@@ -3,21 +3,22 @@
 
 typedef struct t_node t_node;
 
+
 struct t_node {
-	int v;
-	t_node* left;
-	t_node* right;
+    int v;
+    t_node *left;
+    t_node *right;
 };
 
 
-t_node* initialize();
+t_node *initialize();
 
 
-void insert_tree(t_node*, int);
+void insert_tree(t_node *, int);
 
 
-t_node* create_node(int);
+t_node *create_node(int);
 
-int mean(int*);
+int mean(int *);
 
 #endif
