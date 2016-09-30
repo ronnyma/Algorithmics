@@ -4,8 +4,7 @@ project(Algorithmics)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-    binarytree/node.c
-    binarytree/tree.c
+        binarytree/tree.c
     binarytree/tree.h
     binarytree/utility.c)
 
