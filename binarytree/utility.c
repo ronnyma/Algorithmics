@@ -1,7 +1,3 @@
-//
-// Created by Ronny Mandal on 29/09/2016.
-//
-
 #include "tree.h"
 
 int mean(int* arr){
