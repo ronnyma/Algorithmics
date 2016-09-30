@@ -1,8 +1,9 @@
 CC=/usr/bin/clang
 CFLAGS = -I.
 
-tree: tree.c tree.h
-	$(CC) tree.c -o tree
+entry: entry.c entry.h
+	$(CC) $(CFLAGS) entry.c -o entry
+
 
 clean:
 	rm -v tree

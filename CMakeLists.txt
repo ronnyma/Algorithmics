@@ -6,6 +6,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set(SOURCE_FILES
         binarytree/tree.c
     binarytree/tree.h
-    binarytree/utility.c)
+        binarytree/entry.c binarytree/entry.h)
 
 add_executable(Algorithmics ${SOURCE_FILES})
