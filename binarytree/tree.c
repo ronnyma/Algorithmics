@@ -26,7 +26,7 @@ t_node* initialize() {
 t_node* create_node(int value) {
 	t_node* node = malloc(sizeof(t_node));
 	node->v = value;
-    node->left = NULL;
+    	node->left = NULL;
 	node->right = NULL;
 
 	return node;
