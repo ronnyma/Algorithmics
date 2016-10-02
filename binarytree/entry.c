@@ -1,20 +1,21 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "entry.h"
 
 int main() {
 
-    /* Put some values in the tree. */
-    int val[] = {41, 3, 6, 5, 76, 4, 6, 2, 8, 98, 67, 3, 54, 34, 52, 7, 23, 10, 54};
-
     /* Initialize the root. */
-    struct t_node *root = initialize(val[0]);
+    struct t_node *root = initialize(50000);
+    insert(&root, 50000);
 
-    for (int i = 1; i < (sizeof(val) / sizeof(int)); i++) {
-        insert(&root, val[i]);
-//        printf( "%i\n", i);
-}
+    for (int i = 1; i < 100000; i++) {
+        insert(&root, rand() % (100000 + 1) + 0);
+    }
+
 
     traverse(root);
+
+    destroy(root);
 
     return 0;
 }

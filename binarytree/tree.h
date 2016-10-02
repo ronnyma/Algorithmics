@@ -24,5 +24,7 @@ t_node *create_node(int);
 
 void traverse(t_node *);
 
+void destroy(t_node*);
+
 int search(t_node *, int);
 #endif
