@@ -1,17 +1,11 @@
-#ifndef TREE_H
-#define TREE_H
+#ifndef BINARYTREE_H
+#define BINARYTREE_H
 
 
 //struct _t_node;
 
 
 typedef struct t_node t_node;
-
-typedef struct t_node {
-    int v;
-    struct t_node *left;
-    struct t_node *right;
-} t_node;
 
 
 t_node *initialize(int);

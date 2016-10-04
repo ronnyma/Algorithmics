@@ -1,7 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "tree.h"
+#include "binary_tree.h"
 
+
+typedef struct t_node {
+    int v;
+    struct t_node *left;
+    struct t_node *right;
+} t_node;
 
 t_node *initialize(int value) {
     t_node *root = create_node(value);
