@@ -3,6 +3,8 @@
 #include "binary_tree.h"
 
 
+int null_count = 0;
+
 typedef struct t_node {
     int v;
     struct t_node *left;
@@ -52,4 +54,37 @@ void traverse(t_node *root) {
     traverse(root->left);
     printf("V: %i\n", root->v);
     traverse(root->right);
+}
+
+void visualize(t_node *root) {
+    if (root == NULL)
+        return;
+
+    if (root->left != NULL) {
+        printf("\"%i\"->\"%i\";\n", root->v, root->left->v);
+    } else {
+        //printf("null%i [shape=point];\n", null_count);
+        //printf("\"%i\"->\"null%i\";\n", root->v, null_count++);
+    }
+    if (root->right != NULL) {
+        printf("\"%i\"->\"%i\";\n", root->v, root->right->v);
+    } else {
+        //printf("null%i [shape=point];\n", null_count);
+        //printf("\"%i\"->\"null%i\";\n", root->v, null_count++);
+    }
+
+    visualize(root->left);
+    visualize(root->right);
+}
+
+int height(t_node *root) {
+    if (root == NULL)
+        return -1;
+    int left = height(root->left);
+    int right = height(root->right);
+
+    if (right < left)
+        return left + 1;
+    else
+        return right + 1;
 }
