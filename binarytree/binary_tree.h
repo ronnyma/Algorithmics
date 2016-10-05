@@ -1,29 +1,9 @@
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
 
-
-//struct _t_node;
-
-
-typedef struct t_node t_node;
-
-
-t_node *initialize(int);
+#include "tree.h"
 
 /* Inserts a value into the tree. t_node is the parent node, usually the root. */
 void insert(t_node **, int);
-
-/* Return a node containing the value of the integer argument. */
-t_node *create_node(int);
-
-void traverse(t_node *);
-
-void destroy(t_node *);
-
-void visualize(t_node *);
-
-int height(t_node *);
-
-int search(t_node *, int);
 
 #endif
