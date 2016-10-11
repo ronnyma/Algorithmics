@@ -3,7 +3,6 @@
 #include "binary_tree.h"
 
 
-int null_count = 0;
 
 
 void insert(struct t_node **t_node, int value) {
