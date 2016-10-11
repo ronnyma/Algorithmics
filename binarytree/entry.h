@@ -5,5 +5,6 @@
 #ifndef ALGORITHMICS_ENTRY_H
 #define ALGORITHMICS_ENTRY_H
 
-#include "tree.h"
+#include "binary_tree.h"
+#include "avl_tree.h"
 #endif //ALGORITHMICS_ENTRY_H

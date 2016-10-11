@@ -1,7 +1,3 @@
-//
-// Created by Ronny Mandal on 04/10/2016.
-//
-
 #ifndef BINARYTREE_AVL_TREE_H
 #define BINARYTREE_AVL_TREE_H
 
@@ -9,6 +5,13 @@
 
 void insert_avl(t_node **, int);
 
-int check_balance(t_node *);
+int check_balanced(t_node *);
+
+void inspect(t_node *);
+
+void rotate_left(t_node **);
+
+void rotate_right(t_node **);
+
 
 #endif //BINARYTREE_AVL_TREE_H
