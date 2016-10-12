@@ -1,6 +1,3 @@
-//
-// Created by Ronny Mandal on 04/10/2016.
-//
 #include <stdlib.h>
 #include <stdio.h>
 #include "avl_tree.h"
@@ -53,11 +50,31 @@ void rotate_right(struct t_node **t_node) {
 }
 
 void rotate_left(struct t_node **t_node) {
-    //t_node * t = &(*t_node);
     struct t_node *r = *t_node; //4
     struct t_node *p = r->right; //7
 
     r->right = p->left;
     p->left = r;
     *t_node = p;
+}
+
+void half_rotate_right(struct t_node **t_node) {
+    struct t_node *r = *t_node;
+    struct t_node *p = r->right->left;
+
+    p->right = r->right;
+    r->right->left = NULL;
+    r->right = p;
+
+
+}
+
+void half_rotate_left(struct t_node **t_node) {
+    struct t_node *r = *t_node;
+    struct t_node *p = r->left->right;
+
+    p->left = r->left;
+    r->left->right = NULL;
+    r->left = p;
+
 }

@@ -13,5 +13,10 @@ void rotate_left(t_node **);
 
 void rotate_right(t_node **);
 
+void half_rotate_left(struct t_node **);
+
+void half_rotate_right(struct t_node **);
+
+
 
 #endif //BINARYTREE_AVL_TREE_H
