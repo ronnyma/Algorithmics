@@ -60,6 +60,7 @@ void visualize(t_node *root) {
     visualize(root->right);
 }
 
+//TODO: use max(l,f) to get height.
 int height(t_node *root) {
     if (root == NULL)
         return -1;
