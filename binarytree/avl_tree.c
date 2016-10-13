@@ -13,7 +13,12 @@ void insert_avl(struct t_node **t_node, int value) {
     } else {
         insert_avl(&(*t_node)->right, value);
     }
+
     /* Check balance of tree from current node. */
+    int balance = check_balanced(*t_node);
+    if((*t_node)->right == NULL) {
+        printf("LEFT!\n");
+    }
 
     /* Determine rotation to perform. */
 
@@ -30,8 +35,8 @@ void inspect(t_node *root) {
 
 /* Return 0 if balanced, -1 if left over weight and 1 of right over weight. */
 int check_balanced(t_node *root) {
-    int left = height(root->left);
-    int right = height(root->right);
+    int left = get_height(root->left);
+    int right = get_height(root->right);
     int diff = abs(-left + right) > 1 ? 1 : 0;
 
     if (diff)
