@@ -17,6 +17,6 @@ void half_rotate_left(struct t_node **);
 
 void half_rotate_right(struct t_node **);
 
-
+int get_balance_factor(t_node *);
 
 #endif //BINARYTREE_AVL_TREE_H

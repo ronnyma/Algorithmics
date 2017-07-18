@@ -13,12 +13,10 @@ void insert_avl(struct t_node **t_node, int value) {
     } else {
         insert_avl(&(*t_node)->right, value);
     }
-
-    /* Check balance of tree from current node. */
-    int balance = check_balanced(*t_node);
-    if((*t_node)->right == NULL) {
-        printf("LEFT!\n");
-    }
+    //TODO: balance tree
+    //TODO: find a way to determine balance factor
+    /* Update balance factor of nodes in the insertion path. */
+    (*&(*t_node)->balance_factor) = get_balance_factor(*t_node);
 
     /* Determine rotation to perform. */
 
@@ -45,9 +43,17 @@ int check_balanced(t_node *root) {
         return 0;
 }
 
+int get_balance_factor(t_node *root) {
+    int left = get_height(root->left);
+    int right = get_height(root->right);
+    int diff = -left + right;
+
+    return diff;
+}
+
 void rotate_right(struct t_node **t_node) {
-    struct t_node * r = *t_node;
-    struct t_node * p = r->left;
+    struct t_node *r = *t_node;
+    struct t_node *p = r->left;
 
     r->left = p->right;
     p->right = r;

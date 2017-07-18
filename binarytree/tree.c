@@ -15,6 +15,7 @@ t_node *initialize(int value) {
 
 t_node *create_node(int value) {
     t_node *node = (struct t_node *) malloc(sizeof(t_node));
+    node->balance_factor = 0;
     node->v = value;
     node->left = NULL;
     node->right = NULL;
@@ -44,16 +45,16 @@ void visualize(t_node *root) {
         return;
 
     if (root->left != NULL) {
-        printf("\"%i\"->\"%i\";\n", root->v, root->left->v);
+        printf("\"%i(%i)\"->\"%i(%i)\";\n", root->v, root->balance_factor, root->left->v, root->left->balance_factor);
     } else {
-        printf("null%i [shape=point, style=invis];\n", null_count);
-        printf("\"%i\"->\"null%i\" [style=invis];\n", root->v, null_count++);
+        printf("null%i [shape=point];\n", null_count);
+        printf("\"%i(%i)\"->\"null%i\" ;\n", root->v, root->balance_factor, null_count++);
     }
     if (root->right != NULL) {
-        printf("\"%i\"->\"%i\";\n", root->v, root->right->v);
+        printf("\"%i(%i)\"->\"%i(%i)\";\n", root->v, root->balance_factor, root->right->v, root->right->balance_factor);
     } else {
-        printf("null%i [shape=point, style=invis];\n", null_count);
-        printf("\"%i\"->\"null%i\" [style=invis];\n", root->v, null_count++);
+        printf("null%i [shape=point];\n", null_count);
+        printf("\"%i(%i)\"->\"null%i\" ;\n", root->v, root->balance_factor, null_count++);
     }
 
     visualize(root->left);
@@ -61,14 +62,23 @@ void visualize(t_node *root) {
 }
 
 //TODO: use max(l,f) to get height.
-int height(t_node *root) {
+int get_height(t_node *root) {
     if (root == NULL)
         return -1;
-    int left = height(root->left);
-    int right = height(root->right);
+    int left = get_height(root->left);
+    int right = get_height(root->right);
 
     if (right < left)
         return left + 1;
     else
         return right + 1;
 }
+
+void print_header() {
+
+    printf("digraph G{\n\tgraph [ordering=\"out\"];\n");
+}
+void print_footer() {
+    printf("}");
+}
+
