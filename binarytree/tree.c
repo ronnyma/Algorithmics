@@ -31,13 +31,23 @@ void destroy(t_node *root) {
     }
 }
 
-void traverse(t_node *root) {
+void traverse_infix(t_node *root) {
     if (root == NULL)
         return;
 
-    traverse(root->left);
+    traverse_infix(root->left);
     printf("V: %i\n", root->v);
-    traverse(root->right);
+    traverse_infix(root->right);
+}
+
+void traverse_postfix(t_node *root) {
+    if (root == NULL)
+        return;
+
+    traverse_infix(root->left);
+    traverse_infix(root->right);
+    printf("V: %i\n", root->v);
+
 }
 
 void visualize(t_node *root) {
@@ -78,7 +88,8 @@ void print_header() {
 
     printf("digraph G{\n\tgraph [ordering=\"out\"];\n");
 }
+
 void print_footer() {
-    printf("}");
+    printf("}\n");
 }
 

@@ -15,7 +15,10 @@ t_node *initialize(int);
 /* Return a node containing the value of the integer argument. */
 t_node *create_node(int);
 
-void traverse(t_node *);
+
+void traverse_infix(t_node *);
+
+void traverse_postfix(t_node *);
 
 void destroy(t_node *);
 
