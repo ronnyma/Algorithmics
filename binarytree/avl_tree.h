@@ -7,6 +7,8 @@ void insert_avl(t_node **, int);
 
 int check_balanced(t_node *);
 
+void rebalance(t_node **t_node);
+
 void inspect(t_node *);
 
 void rotate_left(t_node **);
