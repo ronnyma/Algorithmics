@@ -11,6 +11,10 @@ void rebalance(t_node **t_node);
 
 void inspect(t_node *);
 
+void delete(t_node **, int);
+
+void remove_node(t_node **);
+
 void rotate_left(t_node **);
 
 void rotate_right(t_node **);

@@ -2,9 +2,11 @@
 #include <stdio.h>
 #include "avl_tree.h"
 
-void insert_avl(struct t_node **t_node, int value) {
+
+void insert_avl(t_node **t_node, int value) {
     if (*t_node == NULL) {//TODO: handle case where value exists
         *t_node = create_node(value);
+
         return;
     }
 
@@ -16,6 +18,7 @@ void insert_avl(struct t_node **t_node, int value) {
     /* Update balance factor of nodes in the insertion path. */
     rebalance(t_node);
 }
+
 
 void rebalance(t_node **t_node) {
     /* Update balance factor. */
@@ -42,6 +45,47 @@ void rebalance(t_node **t_node) {
             rotate_right(t_node);
         }
     }
+}
+
+void delete(t_node **root, int value) {
+    if (*root == NULL)
+        return;
+
+    if ((*root)->v > value)
+        delete(&((*root)->left), value);
+    else if ((*root)->v < value)
+        delete(&((*root)->right), value);
+
+    if ((*root)->v == value) {
+        remove_node(root);
+    }
+
+    rebalance(root);
+}
+
+/* Removes node node** and makes proper adjustments.
+   Uses in-place operations. */
+void remove_node(t_node **node) {
+
+    //Node has zero children
+    if ((*node)->left == NULL && (*node)->right == NULL) {
+        free(*node);
+        *node = NULL;
+
+        return;
+    }
+    //Node has one child
+    if (((*node)->left != NULL ? 1 : 0) ^ ((*node)->right != NULL ? 1 : 0)) {
+        //Take the only child and replace node with it.
+        *node = (*node)->left == NULL ? (*node)->right : (*node)->left;
+        //free(*node);
+
+        return;
+    }
+
+    //Node has two children
+    //if ((*node)->left != NULL && (*node)->right != NULL) { free(node); }
+
 }
 
 void inspect(t_node *root) {
@@ -109,3 +153,4 @@ void half_rotate_left(struct t_node **t_node) {
     p->left = r->left;
     r->left = p;
 }
+
