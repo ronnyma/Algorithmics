@@ -87,6 +87,7 @@ void remove_node(t_node **node) {
         return;
     }
 
+    //TODO: delete nodes with to children
     //Node has two children
     //if ((*node)->left != NULL && (*node)->right != NULL) { free(node); }
 
