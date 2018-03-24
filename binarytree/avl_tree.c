@@ -22,6 +22,8 @@ void insert_avl(t_node **t_node, int value) {
 
 void rebalance(t_node **t_node) {
     /* Update balance factor. */
+    if(*t_node == NULL) return;
+
     (*&(*t_node)->balance_factor) = get_balance_factor(*t_node);
 
     //If node is right heavy
