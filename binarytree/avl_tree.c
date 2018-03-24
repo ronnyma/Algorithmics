@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "avl_tree.h"
+#include "include/avl_tree.h"
 
 
 void insert_avl(t_node **t_node, int value) {
@@ -66,7 +66,6 @@ void delete(t_node **root, int value) {
 /* Removes node node** and makes proper adjustments.
    Uses in-place operations. */
 void remove_node(t_node **node) {
-
     //Node has zero children
     if ((*node)->left == NULL && (*node)->right == NULL) {
         free(*node);
@@ -75,10 +74,13 @@ void remove_node(t_node **node) {
         return;
     }
     //Node has one child
+    //TODO: sett pointer to NULL if child is removed
     if (((*node)->left != NULL ? 1 : 0) ^ ((*node)->right != NULL ? 1 : 0)) {
         //Take the only child and replace node with it.
-        *node = (*node)->left == NULL ? (*node)->right : (*node)->left;
-        //free(*node);
+
+        t_node **tmp = (*node)->left == NULL ? &((*node)->right) : &((*node)->left);
+        free(*node);
+        *node = *tmp;
 
         return;
     }
@@ -120,7 +122,7 @@ int get_balance_factor(t_node *root) {
 
 void rotate_right(struct t_node **t_node) {
     struct t_node *r = *t_node;
-    struct t_node *p = r->left;
+    struct t_node *p = (*t_node)->left;
 
     r->left = p->right;
     p->right = r;
@@ -129,7 +131,7 @@ void rotate_right(struct t_node **t_node) {
 
 void rotate_left(struct t_node **t_node) {
     struct t_node *r = *t_node;
-    struct t_node *p = r->right;
+    struct t_node *p = (*t_node)->right;
 
     r->right = p->left;
     p->left = r;
