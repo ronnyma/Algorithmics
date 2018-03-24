@@ -1,16 +1,27 @@
+IDIR =include
 CC=/usr/bin/clang
-CFLAGS = -I.
+CFLAGS=-I$(IDIR)
 
-entry: entry.c entry.h binary_tree.o avl_tree.o tree.o
-	$(CC) $(CFLAGS) entry.c tree.c binary_tree.c avl_tree.c -o entry
+ODIR=obj
+LDIR =lib
 
-binary_tree.o: binary_tree.c binary_tree.h
-	$(CC) -c binary_tree.c
+LIBS=-lm
 
-avl_tree.o: avl_tree.c
-	$(CC) -c avl_tree.c
+_DEPS = avl_tree.h binary_tree.h tree.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-tree.o: tree.c
-	$(CC) -c tree.c
+_OBJ = avl_tree.o binary_tree.o tree.o entry.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+
+
+$(ODIR)/%.o: %.c $(DEPS)
+	    $(CC) -c -o $@ $< $(CFLAGS)
+
+entry: $(OBJ)
+	    $(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+.PHONY: clean
+
 clean:
-	rm -v entry
+	    rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
+

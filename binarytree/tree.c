@@ -3,7 +3,7 @@
 //
 #include <stdlib.h>
 #include <stdio.h>
-#include "tree.h"
+#include "include/tree.h"
 
 int null_count = 0;
 

@@ -5,12 +5,11 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES
         avl_tree.c
-        avl_tree.h
+        include/avl_tree.h
         binary_tree.c
-        binary_tree.h
+        include/binary_tree.h
         entry.c
-        entry.h
         tree.c
-        tree.h)
+        include/tree.h)
 
 add_executable(binarytree ${SOURCE_FILES})

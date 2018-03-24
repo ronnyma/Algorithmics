@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "binary_tree.h"
+#include "include/binary_tree.h"
 
 
 void insert(struct t_node **t_node, int value) {
