@@ -109,7 +109,7 @@ int check_balanced(t_node *root) {
     int right = get_height(root->right);
     int diff = abs(-left + right) > 1 ? 1 : 0;
 
-    if (diff)
+    if (diff == 0)
         return left > right ? -1 : 1;
 
     return 0;
