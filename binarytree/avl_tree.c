@@ -3,7 +3,7 @@
 #include "include/avl_tree.h"
 
 
-void insert_avl(t_node **t_node, int value) {
+void insert_avl(node_t **t_node, int value) {
     if (*t_node == NULL) {//TODO: handle case where value exists
         *t_node = create_node(value);
 
@@ -20,9 +20,9 @@ void insert_avl(t_node **t_node, int value) {
 }
 
 
-void rebalance(t_node **t_node) {
+void rebalance(node_t **t_node) {
     /* Update balance factor. */
-    if(*t_node == NULL) return;
+    if (*t_node == NULL) return;
 
     (*&(*t_node)->balance_factor) = get_balance_factor(*t_node);
 
@@ -33,7 +33,7 @@ void rebalance(t_node **t_node) {
             rotate_left(t_node);
             //if right child is left heavy: half rotate right, rotate left
         } else if (((*t_node)->right) != NULL && ((*t_node)->right)->balance_factor < 0) {
-            half_rotate_right(t_node);//&(*t_node)->right);
+            half_rotate_right(t_node);//&(*node_t)->right);
             rotate_left(t_node);
         }
         //If node is left heavy
@@ -43,13 +43,13 @@ void rebalance(t_node **t_node) {
             rotate_right(t_node);
             //if left child is right heavy: half rotate left, rotate right
         } else if (((*t_node)->left) != NULL && ((*t_node)->left)->balance_factor > 0) {
-            half_rotate_left(t_node);//&(*t_node)->left);
+            half_rotate_left(t_node);//&(*node_t)->left);
             rotate_right(t_node);
         }
     }
 }
 
-void delete(t_node **root, int value) {
+void delete(node_t **root, int value) {
     if (*root == NULL)
         return;
 
@@ -67,7 +67,7 @@ void delete(t_node **root, int value) {
 
 /* Removes node node** and makes proper adjustments.
    Uses in-place operations. */
-void remove_node(t_node **node) {
+void remove_node(node_t **node) {
     //Node has zero children
     if ((*node)->left == NULL && (*node)->right == NULL) {
         free(*node);
@@ -80,7 +80,7 @@ void remove_node(t_node **node) {
     if (((*node)->left != NULL ? 1 : 0) ^ ((*node)->right != NULL ? 1 : 0)) {
         //Take the only child and replace node with it.
 
-        t_node **tmp = (*node)->left == NULL ? &((*node)->right) : &((*node)->left);
+        node_t **tmp = (*node)->left == NULL ? &((*node)->right) : &((*node)->left);
         free(*node);
         *node = *tmp;
 
@@ -93,7 +93,7 @@ void remove_node(t_node **node) {
 
 }
 
-void inspect(t_node *root) {
+void inspect(node_t *root) {
     if (root == NULL)
         return;
 
@@ -103,7 +103,7 @@ void inspect(t_node *root) {
 }
 
 /* Return 0 if balanced, -1 if left over weight and 1 of right over weight. */
-int check_balanced(t_node *root) {
+int check_balanced(node_t *root) {
 
     int left = get_height(root->left);
     int right = get_height(root->right);
@@ -115,7 +115,7 @@ int check_balanced(t_node *root) {
     return 0;
 }
 
-int get_balance_factor(t_node *root) {
+int get_balance_factor(node_t *root) {
     int left = get_height(root->left);
     int right = get_height(root->right);
     int diff = -left + right;
@@ -123,36 +123,36 @@ int get_balance_factor(t_node *root) {
     return diff;
 }
 
-void rotate_right(struct t_node **t_node) {
-    struct t_node *r = *t_node;
-    struct t_node *p = (*t_node)->left;
+void rotate_right(node_t **t_node) {
+    node_t *r = *t_node;
+    node_t *p = (*t_node)->left;
 
     r->left = p->right;
     p->right = r;
     *t_node = p;
 }
 
-void rotate_left(struct t_node **t_node) {
-    struct t_node *r = *t_node;
-    struct t_node *p = (*t_node)->right;
+void rotate_left(node_t **t_node) {
+    node_t *r = *t_node;
+    node_t *p = (*t_node)->right;
 
     r->right = p->left;
     p->left = r;
     *t_node = p;
 }
 
-void half_rotate_right(struct t_node **t_node) {
-    struct t_node *r = *t_node;
-    struct t_node *p = (*t_node)->right->left;
+void half_rotate_right(node_t **t_node) {
+    node_t *r = *t_node;
+    node_t *p = (*t_node)->right->left;
 
     r->right->left = p->right;
     p->right = r->right;
     r->right = p;
 }
 
-void half_rotate_left(struct t_node **t_node) {
-    struct t_node *r = *t_node;
-    struct t_node *p = (*t_node)->left->right;
+void half_rotate_left(node_t **t_node) {
+    node_t *r = *t_node;
+    node_t *p = (*t_node)->left->right;
 
     r->left->right = p->left;
     p->left = r->left;

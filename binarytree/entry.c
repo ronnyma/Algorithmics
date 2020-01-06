@@ -11,7 +11,7 @@ int main() {
 
     log_info("Starting to build tree");
     /* Initialize the root. */
-    struct t_node *root = initialize(val[0]);
+    node_t *root = initialize(val[0]);
 
     for (int i = 1; i < sizeof(val) / sizeof(int); i++) {
         insert_avl(&root, val[i]);

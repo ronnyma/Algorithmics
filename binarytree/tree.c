@@ -7,14 +7,14 @@
 
 int null_count = 0;
 
-t_node *initialize(int value) {
-    t_node *root = create_node(value);
+node_t *initialize(int value) {
+    node_t *root = create_node(value);
 
     return root;
 }
 
-t_node *create_node(int value) {
-    t_node *node = (struct t_node *) malloc(sizeof(t_node));
+node_t *create_node(int value) {
+    node_t *node = (node_t *) malloc(sizeof(node_t));
     node->balance_factor = 0;
     node->v = value;
     node->left = NULL;
@@ -23,7 +23,7 @@ t_node *create_node(int value) {
     return node;
 }
 
-void destroy(t_node *root) {
+void destroy(node_t *root) {
     if (root != NULL) {
         destroy(root->left);
         destroy(root->right);
@@ -31,7 +31,7 @@ void destroy(t_node *root) {
     }
 }
 
-void traverse_infix(t_node *root) {
+void traverse_infix(node_t *root) {
     if (root == NULL)
         return;
 
@@ -40,7 +40,7 @@ void traverse_infix(t_node *root) {
     traverse_infix(root->right);
 }
 
-void traverse_postfix(t_node *root) {
+void traverse_postfix(node_t *root) {
     if (root == NULL)
         return;
 
@@ -50,7 +50,7 @@ void traverse_postfix(t_node *root) {
 
 }
 
-void visualize(t_node *root) {
+void visualize(node_t *root) {
     if (root == NULL)
         return;
 
@@ -72,7 +72,7 @@ void visualize(t_node *root) {
 }
 
 //TODO: use max(l,f) to get height.
-int get_height(t_node *root) {
+int get_height(node_t *root) {
     if (root == NULL)
         return -1;
     int left = get_height(root->left);
