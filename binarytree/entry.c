@@ -26,8 +26,6 @@ int main() {
     visualize(root);
     print_footer();
 
-
-    //inspect(root);
     destroy(root);
     return 0;
 }

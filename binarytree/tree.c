@@ -85,7 +85,6 @@ int get_height(node_t *root) {
 }
 
 void print_header() {
-
     printf("digraph G{\n\tgraph [ordering=\"out\"];\n");
 }
 
