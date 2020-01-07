@@ -1,33 +1,33 @@
 #ifndef BINARYTREE_TREE_H
 #define BINARYTREE_TREE_H
 
-//typedef struct t_node t_node;
-typedef struct t_node {
+//typedef struct node_t node_t;
+typedef struct node_t {
     int balance_factor;
     int v;
-    struct t_node *left;
-    struct t_node *right;
-} t_node;
+    struct node_t *left;
+    struct node_t *right;
+} node_t;
 
 
-t_node *initialize(int);
+node_t *initialize(int);
 
 /* Return a node containing the value of the integer argument. */
-t_node *create_node(int);
+node_t *create_node(int);
 
 void dummy(int);
 
-void traverse_infix(t_node *);
+void traverse_infix(node_t *);
 
-void traverse_postfix(t_node *);
+void traverse_postfix(node_t *);
 
-void destroy(t_node *);
+void destroy(node_t *);
 
-void visualize(t_node *);
+void visualize(node_t *);
 
-int get_height(t_node *);
+int get_height(node_t *);
 
-int search(t_node *, int);
+int search(node_t *, int);
 
 void print_header();
 

@@ -3,7 +3,7 @@
 #include "include/binary_tree.h"
 
 
-void insert(struct t_node **t_node, int value) {
+void insert(node_t **t_node, int value) {
     if (*t_node == NULL) {
         *t_node = create_node(value);
         return;

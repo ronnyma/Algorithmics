@@ -3,26 +3,26 @@
 
 #include "tree.h"
 
-void insert_avl(t_node **, int);
+void insert_avl(node_t **, int);
 
-int check_balanced(t_node *);
+int check_balanced(node_t *);
 
-void rebalance(t_node **t_node);
+void rebalance(node_t **t_node);
 
-void inspect(t_node *);
+void inspect(node_t *);
 
-void delete(t_node **, int);
+void delete(node_t **, int);
 
-void remove_node(t_node **);
+void remove_node(node_t **);
 
-void rotate_left(t_node **);
+void rotate_left(node_t **);
 
-void rotate_right(t_node **);
+void rotate_right(node_t **);
 
-void half_rotate_left(struct t_node **);
+void half_rotate_left(node_t **);
 
-void half_rotate_right(struct t_node **);
+void half_rotate_right(node_t **);
 
-int get_balance_factor(t_node *);
+int get_balance_factor(node_t *);
 
 #endif //BINARYTREE_AVL_TREE_H
