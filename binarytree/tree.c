@@ -57,13 +57,13 @@ void visualize(node_t *root) {
     if (root->left != NULL) {
         printf("\"%i(%i)\"->\"%i(%i)\";\n", root->v, root->balance_factor, root->left->v, root->left->balance_factor);
     } else {
-        printf("null%i [shape=point, style=invis];\n", null_count);
+        printf("null%i [ shape=point, style=invis ];\n", null_count);
         printf("\"%i(%i)\"->\"null%i\" [ style = invis ]; \n", root->v, root->balance_factor, null_count++);
     }
     if (root->right != NULL) {
         printf("\"%i(%i)\"->\"%i(%i)\";\n", root->v, root->balance_factor, root->right->v, root->right->balance_factor);
     } else {
-        printf("null%i [shape=point, style=invis];\n", null_count);
+        printf("null%i [ shape=point, style=invis ];\n", null_count);
         printf("\"%i(%i)\"->\"null%i\" [ style = invis ]; \n", root->v, root->balance_factor, null_count++);
     }
 
