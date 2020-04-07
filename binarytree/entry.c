@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "include/binary_tree.h"
-#include "include/avl_tree.h"
+#include "include/avl/avl_tree.h"
 #include "include/log.h"
 
 int main() {
