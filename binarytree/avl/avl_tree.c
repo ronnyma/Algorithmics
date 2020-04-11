@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "include/avl_tree.h"
+#include "../include/avl/avl_tree.h"
 
 
 void insert_avl(node_t **t_node, int value) {

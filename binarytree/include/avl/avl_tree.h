@@ -1,7 +1,7 @@
 #ifndef BINARYTREE_AVL_TREE_H
 #define BINARYTREE_AVL_TREE_H
 
-#include "tree.h"
+#include "../tree.h"
 
 void insert_avl(node_t **, int);
 
