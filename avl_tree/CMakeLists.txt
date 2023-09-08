@@ -3,7 +3,7 @@ project(avl_tree C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(algo
+add_executable(avl_tree
         entry.c
         log.c
         tree.c

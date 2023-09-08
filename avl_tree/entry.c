@@ -17,10 +17,10 @@ int main() {
         insert_avl(&root, var[i]);
     }
 
-    for (int i = 0; i < sizeof(var) / sizeof(int); i++) {
-        delete(&root, var[i]);
-        printf("Delete: %i\n", var[i]);
-    }
+//    for (int i = 0; i < sizeof(var) / sizeof(int); i++) {
+//        delete(&root, var[i]);
+//        printf("Delete: %i\n", var[i]);
+//    }
 
     print_header();
     visualize(root);
