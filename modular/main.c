@@ -3,7 +3,10 @@
 
 int main(void) {
 
-    mpz_t a, b, c, n;
+    mpz_t a;
+    mpz_t b;
+    mpz_t c;
+    mpz_t n;
     mpz_inits(a, b, c, n, NULL);
 
     mpz_set_str(n, "7", 10);
