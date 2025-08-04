@@ -2,8 +2,8 @@
 // Created by Ronny Mandal on 25/07/2025.
 //
 
-#ifndef
-#define
+#ifndef CRYPTO_H
+#define CRYPTO_H
 #include <stdlib.h>
 #include <stdio.h>
 #include <gmp.h>
