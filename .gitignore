@@ -61,3 +61,29 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 cmake-build-debug
+# Build directories
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+
+# Compiled binaries and object files
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.a
+*.exe
+
+# CLion and other JetBrains IDE files
+.idea/
+*.iml
+
+# macOS files
+.DS_Store
+
+# Optional: log files or custom output
+*.log
