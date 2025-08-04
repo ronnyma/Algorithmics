@@ -17,5 +17,6 @@ int main(void) {
     madd(a, b, c, n);
     gmp_printf("%Zd + %Zd = %Zd\n", b, c, a);
 
+    mpz_clears(a, b, c, n, NULL);
     return 0;
 }
