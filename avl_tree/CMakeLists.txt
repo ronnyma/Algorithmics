@@ -8,4 +8,5 @@ add_executable(avl_tree
         log.c
         tree.c
         binary_tree.c
-        avl_tree.c)
+        avl_tree.c
+    )
