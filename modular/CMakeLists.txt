@@ -12,4 +12,4 @@ add_executable(modular
         modular.c
 )
 
-target_link_libraries(modular gmp gmpxx)
+target_link_libraries(modular gmp)
