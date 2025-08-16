@@ -12,4 +12,6 @@ add_executable(modular
         modular.c
 )
 
+target_compile_options(modular PRIVATE -Wall -Wextra -pedantic)
+add_compile_options(modular PRIVATE -Wall -Wextra -pedantic -Werror)
 target_link_libraries(modular gmp)
